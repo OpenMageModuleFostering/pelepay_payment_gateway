@@ -103,7 +103,7 @@ class Eoi_Pelepay_Model_Paymentmethod extends Mage_Payment_Model_Method_Abstract
     	if ($this->getConfigData('transaction_mode') == 'live')
     		return $this->_liveAdminUrl;
     	return $this->_testAdminUrl;
-    }
+    }																																	
 
 
     /**
