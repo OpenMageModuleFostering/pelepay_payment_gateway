@@ -113,6 +113,25 @@ class Eoi_Pelepay_Model_Paymentmethod extends Mage_Payment_Model_Method_Abstract
      */
     public function getFormFields()
     {
+	   $items     = $this->getOrder()->getAllItems();
+	   $prod_desc = '';
+	   foreach ($items as $itemId => $item)
+		{
+		   $name[] = $item->getName();
+     	}
+		if(@is_array($name)) {
+			if(count($name) > 0) {
+				foreach($name as $k => $prd)
+				{
+					if($prd != '') {
+						 if($prod_desc == '')
+						 $prod_desc = $prd;
+						 else
+						 $prod_desc .= " | ".$prd;
+				   }
+				}
+			}
+		}
 	    	// get transaction amount and currency
         if ($this->getConfigData('use_store_currency')) {
         	$price      = number_format($this->getOrder()->getGrandTotal(),2,'.','');
@@ -135,15 +154,15 @@ class Eoi_Pelepay_Model_Paymentmethod extends Mage_Payment_Model_Method_Abstract
     					'orderid'		=>	$this->getOrder()->getRealOrderId(),
 	    				'testMode'		=>	($this->getConfigData('transaction_mode') == 'test') ? '100' : '0',
 	    				'amount'		=>	$price,
-    					'description'   =>	Mage::helper('pelepay')->__('Your purchase at') . ' ' . Mage::app()->getStore()->getName(),
+    					'description'   =>	$prod_desc,
 						'Max_payments'	=>	$this->getConfigData('max_payments'),
-						'address'		=>	Mage::helper('core')->removeAccents($billing->getStreet(-1)).'&#10;'.Mage::helper('core')->removeAccents($billing->getCity()),
+						'address'		=>	$billing->getStreet(-1).'&#10;'.$billing->getCity(),
 						'postcode'		=>	$billing->getPostcode() ,
 						'country'		=>	$billing->getCountry(),
 						'phone'			=>	$billing->getTelephone(),
 						'email'			=>	$this->getOrder()->getCustomerEmail(),
-						'firstname'		=>	Mage::helper('core')->removeAccents($billing->getFirstname()),
-						'lastname'		=>	Mage::helper('core')->removeAccents($billing->getLastname()),
+						'firstname'		=>	$billing->getFirstname(),
+						'lastname'		=>	$billing->getLastname(),
 						'cancel_return' =>  Mage::getUrl($this->getConfigData('cancel_return_url')),
 						'fail_return'   =>  Mage::getUrl($this->getConfigData('fail_return_url')),
 						'success_return' => Mage::getUrl($this->getConfigData('success_return_url')) //success_return_url
