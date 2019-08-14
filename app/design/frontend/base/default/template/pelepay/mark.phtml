@@ -1,0 +1,27 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ *
+ * @category   EOI
+ * @package    EOI_WonderFaye
+ * @copyright  Copyright (c) 2012 EOI (http://www.eoi.com)
+ */  
+?>
+<?php
+/**
+ * Note: This mark is a requirement of PelePay
+ * @see Prideglobe_WonderFaye_Block_Form
+ */
+ $pelepay_button_url = Mage::getSingleton('core/session')->getPelepayBtnUrl();
+?>
+<!-- PelePay Logo -->
+<img src="<?php echo $pelepay_button_url?>" alt="<?php echo Mage::helper('pelepay')->__('Pele-Pay') ?>" class="v-middle" />&nbsp;
+<a href="#" onclick="javascript:window.open('https://www.pelepay.co.il/','olcwhatispelepay','toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=yes, ,left=0, top=0, width=400, height=350'); return false;"><?php echo Mage::helper('pelepay')->__('What is PelePay?') ?></a>
+<!-- PelePay Logo -->

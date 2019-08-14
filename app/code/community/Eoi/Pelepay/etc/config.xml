@@ -1,0 +1,141 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ *
+ * @category   EOI
+ * @package    EOI_WonderFaye
+ * @copyright  Copyright (c) 2012 EOI (http://www.eoi.com)
+ */
+
+-->
+<config>
+    <modules>
+        <Eoi_Pelepay>
+            <version>1.4.1</version>
+        </Eoi_Pelepay>
+    </modules>
+    <global>
+        <models>
+            <pelepay>
+                <class>Eoi_Pelepay_Model</class>
+            </pelepay>
+        </models>
+        <helpers>
+	      <pelepay>
+            <class>Eoi_Pelepay_Helper</class>
+		  </pelepay>
+	    </helpers>
+        <resources>
+            <pelepay_setup>
+                <setup>
+                    <module>Eoi_Pelepay</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </pelepay_setup>
+            <pelepay_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </pelepay_write>
+            <pelepay_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </pelepay_read>
+        </resources>
+        <blocks>
+            <pelepay><class>Eoi_Pelepay_Block</class></pelepay>
+        </blocks>
+        <payment>
+        	<url>https://www.pelepay.co.il/pay/custompaypage.aspx</url>
+            <transaction>
+                <modes>
+                    <LIVE>
+                        <code>live</code>
+                        <name>Live mode</name>
+                    </LIVE>
+                    <TEST>
+                    	<code>test</code>
+                    	<name>Test mode</name>
+                    </TEST>
+                </modes>
+            </transaction>
+        </payment>
+    </global>
+    <frontend>
+        <secure_url>
+            <pelepay_processing>/pelepay/processing</pelepay_processing>
+        </secure_url>
+        <routers>
+            <pelepay>
+                <use>standard</use>
+                <args>
+                    <module>Eoi_Pelepay</module>
+                    <frontName>pelepay</frontName>
+                </args>
+            </pelepay>
+        </routers>
+        <translate>
+            <modules>
+                <Eoi_Pelepay>
+                    <files>
+                        <default>Eoi_Pelepay.csv</default>
+                    </files>
+                </Eoi_Pelepay>
+            </modules>
+        </translate>
+        <layout>
+            <updates>
+                <pelepay>
+                    <file>pelepay.xml</file>
+                </pelepay>
+            </updates>
+        </layout>
+    </frontend>
+    <adminhtml>
+        <translate>
+            <modules>
+                <Eoi_Pelepay>
+                    <files>
+                        <default>Eoi_Pelepay.csv</default>
+                    </files>
+                </Eoi_Pelepay>
+            </modules>
+        </translate>
+    </adminhtml>
+	<default>
+        <payment>        
+            <pelepay_paymentmethod>
+                <active>0</active>
+                <model>pelepay/paymentmethod</model>
+                <order_status>1</order_status>
+                <title>PelePay</title>
+				<submit_url>https://www.pelepay.co.il/pay/custompaypage.aspx</submit_url>
+                <!--<email_id></email_id>-->
+                <max_payments>1</max_payments>
+				<business_name> Please insert your pelepay email adress </business_name>
+				<cancel_return_url>pelepay/processing/cancel</cancel_return_url>
+				<success_return_url>pelepay/processing/success</success_return_url>
+				<fail_return_url>pelepay/processing/response</fail_return_url>
+				<pelepay_button_url>https://www.pelepay.co.il/images/banners/respect_pp_8C.gif</pelepay_button_url>
+                <allowspecific>0</allowspecific>
+                <use_store_currency>0</use_store_currency>
+                <!--<request_type>authorize</request_type>
+				<transaction_mode>test</transaction_mode>-->
+				<fix_contact>1</fix_contact>
+				<hide_contact>0</hide_contact>
+                <enable_online_operations>0</enable_online_operations>
+            </pelepay_paymentmethod>
+        </payment>
+    </default> 
+</config>

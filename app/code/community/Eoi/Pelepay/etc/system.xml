@@ -1,0 +1,153 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ *
+ * @category   EOI
+ * @package    EOI_WonderFaye
+ * @copyright  Copyright (c) 2012 EOI (http://www.eoi.com)
+ */
+
+-->
+<config>
+   <sections>
+        <payment>
+            <groups>
+                <pelepay_paymentmethod translate="label" module="pelepay">
+                    <label>Pele-Pay</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>0</show_in_store>
+                    <fields>
+                        <active translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </active>
+                        <order_status translate="label">
+                            <label>New order status</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_order_status</source_model>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </order_status>
+                        <title translate="label">
+                            <label>Title</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>4</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </title>                    
+                        <submit_url>
+								<label>Gateway URL</label>
+								<frontend_type>text</frontend_type>
+								<sort_order>58</sort_order>
+								<show_in_default>1</show_in_default>
+								<show_in_website>1</show_in_website>
+								<show_in_store>0</show_in_store>
+							</submit_url>
+							<!--<email_id>
+								<label>Email Address</label>
+								<frontend_type>text</frontend_type>
+								<sort_order>59</sort_order>
+								<show_in_default>1</show_in_default>
+								<show_in_website>1</show_in_website>
+								<show_in_store>0</show_in_store>
+							</email_id>-->
+							<max_payments>
+								<label>Payment Number (1-12)</label>
+								<frontend_type>text</frontend_type>
+								<sort_order>60</sort_order>
+								<show_in_default>1</show_in_default>
+								<show_in_website>1</show_in_website>
+								<show_in_store>0</show_in_store>
+							</max_payments>
+							<business_name>
+								<label>Business Name</label>
+								<frontend_type>text</frontend_type>
+								<sort_order>61</sort_order>
+								<show_in_default>1</show_in_default>
+								<show_in_website>1</show_in_website>
+								<show_in_store>0</show_in_store>
+							</business_name>
+							<cancel_return_url>
+								<label>Cancel Return Url</label>
+								<frontend_type>text</frontend_type>
+								<sort_order>62</sort_order>
+								<show_in_default>1</show_in_default>
+								<show_in_website>1</show_in_website>
+								<show_in_store>0</show_in_store>
+							</cancel_return_url>
+							<success_return_url>
+								<label>Success Return Url</label>
+								<frontend_type>text</frontend_type>
+								<sort_order>63</sort_order>
+								<show_in_default>1</show_in_default>
+								<show_in_website>1</show_in_website>
+								<show_in_store>0</show_in_store>
+							</success_return_url>
+							<fail_return_url>
+								<label>Fail Return Url</label>
+								<frontend_type>text</frontend_type>
+								<sort_order>64</sort_order>
+								<show_in_default>1</show_in_default>
+								<show_in_website>1</show_in_website>
+								<show_in_store>0</show_in_store>
+							</fail_return_url>
+							<pelepay_button_url>
+								<label>PelePay Button Url</label>
+								<frontend_type>text</frontend_type>
+								<sort_order>64</sort_order>
+								<show_in_default>1</show_in_default>
+								<show_in_website>1</show_in_website>
+								<show_in_store>0</show_in_store>
+							</pelepay_button_url>
+						<!--<request_type translate="label">
+							<label>Request Type</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>pelepay/source_requestType</source_model>
+                            <sort_order>12</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+						</request_type>
+						<transaction_mode translate="label">
+							<label>Transaction Mode</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>pelepay/source_transactionMode</source_model>
+                            <sort_order>13</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+						</transaction_mode>-->
+						<debug translate="label">
+                            <label>Debug</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </debug>
+                    </fields>
+                </pelepay_paymentmethod>
+            </groups>
+        </payment>
+    </sections>
+</config>
