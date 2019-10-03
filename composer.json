@@ -1,16 +1,19 @@
 {
-    "name": "OpenMageModuleFostering/Pelepay_Payment_Gateway",
+    "name": "OpenMageModuleFostering\/Pelepay_Payment_Gateway",
     "type": "magento-module",
     "license": "OSL-v3.0",
     "homepage": "",
     "description": "A pelepay payment gateway extension adds support to accept payment via Pelepay payment gateway",
     "authors": [
-    {
-        "name": "Etamar Sean Oren",
-        "email": "etamaro@eoi.co.il"
-    }
-],
+        {
+            "name": "Etamar Sean Oren",
+            "email": "etamaro@eoi.co.il"
+        }
+    ],
     "suggest": {
-        "magento-hackathon/magento-composer-installer": "*"
-    }
+        "magento-hackathon\/magento-composer-installer": "*"
+    },
+    "keywords": [
+        "openmage-module"
+    ]
 }
