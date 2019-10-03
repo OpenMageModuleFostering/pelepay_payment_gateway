@@ -1,5 +1,5 @@
 {
-    "name": "OpenMageModuleFostering\/Pelepay_Payment_Gateway",
+    "name": "openmage-module-fostering\/pelepay_payment_gateway",
     "type": "magento-module",
     "license": "OSL-v3.0",
     "homepage": "",
